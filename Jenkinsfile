@@ -24,7 +24,7 @@ pipeline {
                 sh 'curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose'
                 sh 'chmod +x /usr/local/bin/docker-compose'
                 sh 'ls -alrt'
-                sh 'docker-compose up'
+                sh 'docker-compose up &'
                 sh 'http://0.0.0.0:5000/'
                }
 
