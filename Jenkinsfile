@@ -38,6 +38,14 @@ pipeline {
                 }
             }
         }
+        state('test'){
+            agent {
+                    label 'dind'
+            }
+            steps{
+                sh 'curl localhost:5000'
+            }
+        }
     }
     post {
         success {
