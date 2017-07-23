@@ -25,8 +25,7 @@ pipeline {
                 sh 'chmod +x /usr/local/bin/docker-compose'
                 sh 'ls -alrt'
                 sh 'docker-compose up &'
-                sh 'sleep 10'
-                sh 'http://0.0.0.0:5000/'
+                sh 'sleep 30'
                }
 
             post {
@@ -38,7 +37,7 @@ pipeline {
                 }
             }
         }
-        state('test'){
+        stage('test'){
             agent {
                     label 'dind'
             }
