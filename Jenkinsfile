@@ -25,6 +25,7 @@ pipeline {
                 sh 'chmod +x /usr/local/bin/docker-compose'
                 sh 'ls -alrt'
                 sh 'docker-compose up &'
+                sh 'sleep 10'
                 sh 'http://0.0.0.0:5000/'
                }
 
