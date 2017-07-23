@@ -4,6 +4,18 @@ pipeline {
         skipDefaultCheckout() 
     }
     stages {
+         stage ('GitCheckout') {
+            agent {
+                docker {
+                    image 'maven:3.5'
+                    label 'dind'
+                }
+            }
+            steps {
+                echo env.BRANCH_NAME
+                checkout scm
+            }
+        }
         stage ('Build') {
             agent {
                     label 'dind'
